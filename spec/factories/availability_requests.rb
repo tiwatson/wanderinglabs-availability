@@ -3,7 +3,6 @@
 FactoryGirl.define do
   factory :availability_request do
     location_id 1
-    email "MyString"
     active false
     date_start "2014-07-24"
     date_end "2014-07-24"
