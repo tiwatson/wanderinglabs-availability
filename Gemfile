@@ -54,7 +54,7 @@ gem 'rails-assets-restangular'
 
 # gem 'rails-assets-angucomplete-alt'
 #
-# gem 'rails-assets-normalize-css'
-# gem 'rails-assets-bourbon'
-# gem 'rails-assets-neat'
-# gem 'rails-assets-font-awesome'
+gem 'rails-assets-normalize-css'
+gem 'rails-assets-bourbon'
+gem 'rails-assets-neat'
+gem 'rails-assets-font-awesome'
