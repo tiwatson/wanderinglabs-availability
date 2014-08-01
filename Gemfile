@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
+
 ruby '2.1.0'
 gem 'rails', '4.1.0'
 gem 'sass-rails', '~> 4.0.3'
@@ -42,3 +44,17 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
+
+
+# Bower based assets files
+gem 'rails-assets-angular'
+gem 'rails-assets-angular-ui-router'
+gem 'rails-assets-lodash'
+gem 'rails-assets-restangular'
+
+# gem 'rails-assets-angucomplete-alt'
+#
+# gem 'rails-assets-normalize-css'
+# gem 'rails-assets-bourbon'
+# gem 'rails-assets-neat'
+# gem 'rails-assets-font-awesome'
