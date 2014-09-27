@@ -16,4 +16,6 @@
 //= require angular-ui-router
 //= require lodash
 //= require restangular
+//= require ngQuickDate
+//= require angucomplete-alt
 //= require_tree .

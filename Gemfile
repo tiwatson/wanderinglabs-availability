@@ -3,7 +3,7 @@ source 'https://rails-assets.org'
 
 ruby '2.1.0'
 gem 'rails', '4.1.0'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', github: 'rails/sass-rails'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
@@ -17,6 +17,7 @@ gem 'pg'
 gem 'devise'
 
 gem 'mechanize'
+gem "active_model_serializers"
 
 group :development do
   gem 'better_errors'
@@ -45,12 +46,15 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'bitters'
 
 # Bower based assets files
 gem 'rails-assets-angular'
 gem 'rails-assets-angular-ui-router'
 gem 'rails-assets-lodash'
 gem 'rails-assets-restangular'
+gem 'rails-assets-ngQuickDate'
+gem 'rails-assets-angucomplete-alt'
 
 # gem 'rails-assets-angucomplete-alt'
 #

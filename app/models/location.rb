@@ -6,5 +6,4 @@ class Location < ActiveRecord::Base
     "http://www.reserveamerica.com/camping/#{slug}/r/campgroundDetails.do?contractCode=#{state}&parkId=#{park_id}"
   end
 
-
 end

@@ -1,1 +1,36 @@
-%h1 Hello world
+%h3 Availability Requests
+
+
+%table
+  %thead
+    %tr
+      %th
+        %a{ href: '#', 'ng-click' => "predicate = 'location.name'; reverse=!reverse" }
+          Campground
+      %th
+        %a{ href: '#', 'ng-click' => "predicate = 'date_start'; reverse=!reverse" }
+          Date Range
+      %th
+        %a{ href: '#', 'ng-click' => "predicate = 'days_length'; reverse=!reverse" }
+          Nights
+      %th
+        %a{ href: '#', 'ng-click' => "predicate = 'date_start'; reverse=!reverse" }
+          Matches
+      %th
+        %a{ href: '#', 'ng-click' => "predicate = '[active, -date_start]'; reverse=!reverse" }
+          Status
+
+
+
+  %tr{ 'ng-repeat' => 'item in ar.all | orderBy:predicate:reverse' }
+    %td {{item.location.name}}
+    %td {{item.date_start}} - {{item.date_end}}
+    %td {{item.days_length}}
+    %td
+    %td
+      %button.small.red{ 'ng-show' => 'item.expired'}
+        Expired
+      %button.small.green{ 'ng-click' => 'pauseRequest(item)', 'ng-show' => 'item.active && !item.expired' }
+        Active
+      %button.small.gray{ 'ng-click' => 'pauseRequest(item)', 'ng-hide' => 'item.active || item.expired' }
+        Paused

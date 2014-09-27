@@ -1,1 +1,36 @@
-%h1 New
+
+.card-copy
+  .row
+    .half
+      %label{ for: 'campground' }Where do you want to camp?
+      %angucomplete-alt{  :id => "campground",
+                                :placeholder => "Select Campground",
+                                :pause => "400",
+                                :minlength => 1,
+                                :'match-class' => "highlight",
+                                :'selected-object' => "ar.location",
+                                :'remote-url' => "/api/locations?q=",
+                                :'remote-url-data-field' => "results",
+                                :'title-field' => "name" }
+  .row
+    .third
+      %label{ for: 'date_start' }Date Start
+      %quick-datepicker{ 'ng-model' => 'ar.date_start', 'placeholder' => 'Set Date', 'disable-timepicker' => 'true' }
+
+    .third
+      %label{ for: 'date_start' }Date End
+      %quick-datepicker{ 'ng-model' => 'ar.date_end', 'placeholder' => 'Set Date', 'disable-timepicker' => 'true' }
+
+    .third
+      %label{ for: 'days_length' }# of nights
+      %input#days_length{ type: 'text', 'ng-model' => 'ar.days_length' }
+
+
+  .row
+    .half
+      %label{ for: 'user_email' }Email Address
+      %input#user_email{ type: 'text', 'ng-model' => 'ar.user.email' }
+
+
+  .row
+    %button{ 'ng-click' => 'newRequest()' } Submit

@@ -1,5 +1,10 @@
 angular.module('wl_availability', [
   'ui.router',
+  'restangular',
+  'angucomplete-alt',
+  'ngQuickDate',
+  'wl_a.restangular_config',
+  'wl_a.quickDatePickerDefaults',
   'wl_a.availability_requests'
 ])
 .config(['$httpProvider', function($httpProvider){

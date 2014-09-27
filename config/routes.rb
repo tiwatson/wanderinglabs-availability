@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  #devise_for :users
+
+  namespace :api do
+    resources :availability_requests
+    resources :locations, only: [:index]
+  end
 
   #get '/*path', to: 'angular#index'
   root 'angular#index'

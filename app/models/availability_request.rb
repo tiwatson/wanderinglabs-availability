@@ -6,6 +6,11 @@ class AvailabilityRequest < ActiveRecord::Base
 
   attr_accessor :next_date
 
+  def expired
+    self.date_end < Time.now
+  end
+
+
   def find_availability
 
     location_connection = LocationConnection.new(location)
