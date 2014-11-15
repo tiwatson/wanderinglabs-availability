@@ -68,64 +68,6 @@ section {
   }
 }
 
-
-.hero {
-  $hero-background-top: darken($base-accent-color, 25);
-  $hero-background-bottom: adjust-hue($hero-background-top, -70);
-  $hero-color: white;
-  $gradient-angle: 10deg;
-  $hero-image: asset_url('hero_bg.png');
-
-  @include background(asset_url('hero_bg.png'), no-repeat scroll);
-
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: cover;
-  padding-bottom: 3em;
-
-  .hero-inner {
-    @include outer-container;
-    @include clearfix;
-    padding: 2em;
-    margin: auto;
-    //text-align: center;
-    color: $hero-color;
-
-    button {
-      @include button(simple, $base-background-color);
-      font-size: $base-font-size;
-      outline: none;
-    }
-
-    .hero-copy {
-      //text-align: center;
-
-      h1 {
-        //font-size: 1.6em;
-        margin-bottom: .5em;
-
-        @include media($large-screen) {
-          //font-size: 1.8em;
-        }
-      }
-
-      p {
-        //font-family: $serif;
-        //margin: auto;
-        margin-bottom: 3em;
-        font-weight: 400;
-        line-height: 1.4em;
-
-        @include media($large-screen) {
-          font-size: 1.1em;
-          max-width: 40%;
-        }
-      }
-    }
-  }
-}
-
-
 .cards {
   @include clearfix;
 }
@@ -159,31 +101,6 @@ section {
   // @include media($large-screen) {
   //   @include span-columns(6);
   // }
-
-  .ribbon-wrapper {
-    $ribbon-size: 85px;
-    $ribbon-background: $base-accent-color;
-    @include size($ribbon-size);
-    overflow: hidden;
-    position: absolute;
-    top: -1px;
-    left: -1px;
-
-    .ribbon {
-      font-size: .8em;
-      font-weight: 800;
-      text-align: center;
-      @include transform(rotate(-45deg));
-      position: relative;
-      padding: 2px 7px;
-      right: 36px;
-      top: 10px;
-      width: 120px;
-      background-color: $ribbon-background;
-      color: white;
-      box-shadow: 0px 0px 3px rgba(0,0,0,0.3);
-    }
-  }
 
   .card-header {
     @include transition (all 0.2s ease-in-out);
