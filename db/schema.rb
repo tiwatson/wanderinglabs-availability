@@ -28,18 +28,6 @@ ActiveRecord::Schema.define(version: 20140726214748) do
     t.datetime "updated_at"
   end
 
-  create_table "availability_request_notifcations", force: true do |t|
-    t.integer  "availability_request_id"
-    t.string   "site"
-    t.date     "date_start"
-    t.date     "date_end"
-    t.integer  "days_length"
-    t.datetime "notified_at"
-    t.boolean  "available",               default: false, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "availability_requests", force: true do |t|
     t.integer  "location_id"
     t.boolean  "active",       default: false, null: false

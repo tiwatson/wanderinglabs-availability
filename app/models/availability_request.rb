@@ -6,10 +6,15 @@ class AvailabilityRequest < ActiveRecord::Base
 
   attr_accessor :next_date
 
+  after_save do |object|
+    if object.availabilities.to_notify.count > 0
+      AvailabilityNotifier.notify(object.id).deliver
+    end
+  end
+
   def expired
     self.date_end < Time.now
   end
-
 
   def find_availability
 
@@ -59,8 +64,6 @@ class AvailabilityRequest < ActiveRecord::Base
     end
   end
 
-
-
   def query
     {
         "contractCode"=> location.state,
@@ -81,23 +84,5 @@ class AvailabilityRequest < ActiveRecord::Base
        "lookingFor"=>"2001"
     }
   end
-
-
-  #
-  # def all_in_one
-  #   require 'mechanize'
-  #   request = Mechanize.new
-  #   puts "First get #{location.url}"
-  #   request.get(location.url)
-  #   puts "POST_FILTER - #{location.url} - #{query}"
-  #   request.post(location.url, query)
-  #   self.next_date = date_start
-  #   url = "http://www.reserveamerica.com/campsiteCalendar.do?page=calendar&contractCode=#{location.state}&parkId=#{location.park_id}&calarvdate=#{next_date.strftime('%m/%d/%Y')}&findavail=next"
-  #   puts "LocationScraper - #{url}"
-  #   request.get(url)
-  #   puts "Request - #{request.page.links}"
-  #   puts request.page.parser.css('tr:has(td.a)').css('td.status').map { |n| n.css('a').present? ? CGI::parse(n.css('a')[0]['href'])['arvdate'].first : nil }.each_slice(14).to_a
-  # end
-
 
 end
