@@ -2,11 +2,11 @@
 @import 'bourbon';
 @import 'base/base';
 
-$medium-screen: em(640);
-$large-screen: em(860);
-
-$medium-screen-up: new-breakpoint(min-width $medium-screen 4);
-$large-screen-up: new-breakpoint(min-width $large-screen 8);
+// $medium-screen: em(640);
+// $large-screen: em(860);
+//
+// $medium-screen-up: new-breakpoint(min-width $medium-screen 4);
+// $large-screen-up: new-breakpoint(min-width $large-screen 8);
 
 
 @import 'neat';
@@ -25,14 +25,17 @@ $large-screen-up: new-breakpoint(min-width $large-screen 8);
 
 section {
   @include outer-container;
+
+  .card {
+    @include span-columns(6);
+    @include shift(3);
+  }
+
 }
 
 #availability_request_new {
   margin-top: 1em;
 
-  .card {
-    @include span-columns(6);
-  }
 
   .half {
     @include span-columns(3 of 6);

@@ -17,16 +17,41 @@ angular.module('wl_availability', [
   // $locationProvider.hashPrefix('!');
 
   $stateProvider
+
+        // route to show our basic form (/form)
+        .state('form', {
+            url: '/form',
+            templateUrl: 'form.html',
+            controller: 'formController'
+        })
+
+        // nested states
+        // each of these sections will have their own view
+        // url will be nested (/form/profile)
+        .state('form.profile', {
+            url: '/profile',
+            templateUrl: 'form-profile.html'
+        })
+
+        // url will be /form/interests
+        .state('form.interests', {
+            url: '/interests',
+            templateUrl: 'form-interests.html'
+        })
+
+        // url will be /form/payment
+        .state('form.payment', {
+            url: '/payment',
+            templateUrl: 'form-payment.html'
+        })  
+
+
     .state('availabilityRequests',{
       url: '',
       views: {
         'availability_request_new': {
           templateUrl: '/assets/availability_requests/new.html',
           controller: 'AvailabilityRequestController'
-        },
-        'availability_request_list': {
-          templateUrl: '/assets/availability_requests/index.html',
-          controller: 'AvailabilityRequestsController'
         }
 
       }

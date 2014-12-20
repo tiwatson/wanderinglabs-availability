@@ -17,6 +17,7 @@ gem 'pg'
 gem 'devise'
 
 gem 'mechanize'
+gem 'httparty'
 gem "active_model_serializers"
 
 group :development do

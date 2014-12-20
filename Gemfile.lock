@@ -129,6 +129,9 @@ GEM
       ruby_parser (~> 3.1.1)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     interception (0.5)
     jbuilder (2.2.4)
@@ -163,6 +166,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
     nokogiri (1.6.4.1)
@@ -311,6 +315,7 @@ DEPENDENCIES
   guard-rspec
   haml-rails
   html2haml
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   launchy
