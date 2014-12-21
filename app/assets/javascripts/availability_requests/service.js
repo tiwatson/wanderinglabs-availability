@@ -6,6 +6,20 @@ angular.module('availability_requests.services', [ ]).
 
       all: [],
 
+      siteTypes: [
+        { name: 'RV Sites', value: 2001 },
+        { name: 'Cabins or Lodgings', value: 10001 },
+        { name: 'Tent', value: 2003 },
+        { name: 'Trailer', value: 2002 }
+      ],
+
+      electricTypes: [
+        { name: '15 Amps or More', value: 3002 },
+        { name: '20 Amps or More', value: 3003 },
+        { name: '30 Amps or More', value: 3004 },
+        { name: '50 Amps or More', value: 3005 }
+      ],
+
       getList: function(params){
         return service.base.getList(params).then(function(results) {
           service.all = results;

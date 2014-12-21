@@ -2,14 +2,24 @@
 @import 'bourbon';
 @import 'base/base';
 
-// $medium-screen: em(640);
-// $large-screen: em(860);
-//
-// $medium-screen-up: new-breakpoint(min-width $medium-screen 4);
-// $large-screen-up: new-breakpoint(min-width $large-screen 8);
+$max-width: em(860);
+$medium-screen: em(640);
+$large-screen: em(860);
 
+// $visual-grid: true;
+// $visual-grid-color: red;
+// $visual-grid-index: front;
+// $visual-grid-opacity: 0.1;
 
 @import 'neat';
+
+$medium-screen-up: new-breakpoint(min-width $medium-screen 12);
+$large-screen-up: new-breakpoint(min-width $large-screen 12);
+
+$mobile: new-breakpoint(max-width 480px);
+$desktop: new-breakpoint(min-width $large-screen);
+
+
 @import 'font-awesome';
 
 @import 'ngQuickDate';
@@ -18,30 +28,36 @@
 
 .wrap {
   section {
-    //background-color: $wrap-background-color;
-    //padding: 10px;
+    padding-top: $base-line-height;
+    @include media($mobile) {
+      padding: $base-line-height;
+    }
   }
 }
 
 section {
   @include outer-container;
-
   .card {
-    @include span-columns(6);
-    @include shift(3);
+    @include span-columns(12);
   }
 
 }
 
 #availability_request_new {
-  margin-top: 1em;
-
 
   .half {
-    @include span-columns(3 of 6);
+    //@include media($desktop) {
+      @include span-columns(6 of 12);
+    //}
+    @include media($mobile) {
+      @include span-columns(12 of 12);
+    }
   }
   .third {
-    @include span-columns(2 of 6);
+    @include span-columns(4 of 12);
+  }
+  .quarter {
+    @include span-columns(3 of 12);
   }
 
   .row {
@@ -75,13 +91,7 @@ section {
   @include clearfix;
 }
 
-.arn {
-  //@include span-columns(6);
-}
-
 .card {
-  //@include shift(1);
-  @include span-columns(6);
   $card-border-color: $base-border-color;
   $card-border: 1px solid $card-border-color;
   $card-background: lighten($card-border-color, 10);
@@ -95,15 +105,10 @@ section {
   background-color: #fff; //$card-background;
   border-radius: $base-border-radius;
   border: $card-border;
-  margin-bottom: $base-line-height;
   box-shadow: 0 2px 4px darken($base-background-color, 10);
   position: relative;
 
   padding: $base-line-height/2 $gutter/2;
-
-  // @include media($large-screen) {
-  //   @include span-columns(6);
-  // }
 
   .card-header {
     @include transition (all 0.2s ease-in-out);
@@ -121,4 +126,36 @@ section {
     //line-height: 1.5em;
   }
 
+}
+
+label {
+  &.required {
+    color: darken($error-color, 45);
+  }
+}
+
+$expander-arrow-width: 5px;
+$expander-toggle-size: 1em;
+$expander-toggle-arrow-size: $expander-toggle-size;
+$expander-toggle-margin: 1em;
+
+.expander-trigger {
+  @include user-select(none);
+  cursor: pointer;
+  display: block;
+  font-size: $expander-toggle-size;
+  margin-bottom: $expander-toggle-size;
+  padding-bottom: $expander-toggle-size / 4;
+
+  &:before {
+    content: '\25BC';
+    font-size: $expander-toggle-arrow-size;
+    margin-right: .5em;
+  }
+}
+
+.expander-hidden {
+  &:before {
+    content: '\25BA';
+  }
 }

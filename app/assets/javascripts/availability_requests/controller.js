@@ -2,6 +2,7 @@ angular.module('availability_requests.controllers', [])
 
   .controller('AvailabilityRequestController', ['$scope', '$state', 'availabilityRequestsService', function($scope, $state, availabilityRequestsService) {
     $scope.ar = availabilityRequestsService;
+    $scope.siteOptionsCollapsed = true;
 
     $scope.newRequest = function() {
       availabilityRequestsService.post();

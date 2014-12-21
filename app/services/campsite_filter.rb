@@ -25,7 +25,7 @@ class CampsiteFilter
       'arvdate' => availability_request.date_start.strftime("%m/%d/%Y"),
       'lengthOfStay' => availability_request.days_length,
       'siteType' => availability_request.site_type,
-      'eqplen' => 50, #availability_request.eq_len,
+      'eqplen' => availability_request.eq_len,
       'hookup' => availability_request.electric,
       'water' => availability_request.water? ? '3007' : nil,
       'sewer' => availability_request.sewer? ? '3007' : nil,
