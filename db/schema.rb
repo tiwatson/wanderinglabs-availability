@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141221034145) do
+ActiveRecord::Schema.define(version: 20141223035835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,11 +59,19 @@ ActiveRecord::Schema.define(version: 20141221034145) do
     t.integer  "eq_len"
   end
 
+  create_table "location_agencies", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locations", force: :cascade do |t|
-    t.string "name",    limit: 255
-    t.string "slug",    limit: 255
-    t.string "park_id", limit: 255
-    t.string "state",   limit: 255
+    t.string  "name",               limit: 255
+    t.string  "slug",               limit: 255
+    t.string  "park_id",            limit: 255
+    t.string  "state",              limit: 255
+    t.string  "contract_code"
+    t.integer "location_agency_id"
   end
 
   create_table "users", force: :cascade do |t|
