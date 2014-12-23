@@ -18,7 +18,7 @@ gem 'devise'
 
 gem 'mechanize'
 gem 'httparty'
-gem "active_model_serializers"
+gem "active_model_serializers", github: 'rails-api/active_model_serializers', branch: '0-8-stable'
 
 group :development do
   gem 'better_errors'

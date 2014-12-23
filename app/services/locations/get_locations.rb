@@ -42,7 +42,7 @@ module Locations
 
             location = Location.find_or_initialize_by(park_id: location_hash[:park_id])
 
-            if location_hash[:agency] == 'state'
+            if location_hash[:agency] == 'State'
               location.location_agency = agency
             else
               location.location_agency = LocationAgency.find_or_create_by(name: location_hash[:agency])
