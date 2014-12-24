@@ -1,5 +1,5 @@
 angular.module('wl_a.restangular_config', [ ])
-  .config(function(RestangularProvider) {
+  .config(['RestangularProvider', function(RestangularProvider) {
     // Will want to figure how to turn on for production
     RestangularProvider.setDefaultHttpFields({cache: false});
 
@@ -25,4 +25,4 @@ angular.module('wl_a.restangular_config', [ ])
 
 
 
-  });
+  }]);
