@@ -33,6 +33,11 @@ group :development do
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
   gem "letter_opener"
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv', github: "capistrano/rbenv"
+
 end
 group :development, :test do
   gem 'factory_girl_rails'
@@ -46,6 +51,10 @@ group :test do
   gem 'faker'
   gem 'launchy'
   gem 'selenium-webdriver'
+end
+
+group :produciton do
+  gem 'unicorn'
 end
 
 gem 'bitters'
