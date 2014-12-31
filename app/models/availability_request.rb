@@ -6,6 +6,8 @@ class AvailabilityRequest < ActiveRecord::Base
 
   attr_accessor :next_date
 
+  validates_presence_of :location, :user, :date_start, :date_end, :days_length
+
   after_save do |object|
     if object.availabilities.to_notify.count > 0
       AvailabilityNotifier.notify(object.id).deliver
@@ -63,7 +65,7 @@ class AvailabilityRequest < ActiveRecord::Base
       chunked.each do |chunk|
 
         puts "SITE - #{site[0]}"
-        
+
         location_availability = LocationAvailability.new(self, chunk, site)
         availability = location_availability.availability
 

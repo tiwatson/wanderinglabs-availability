@@ -28,10 +28,18 @@ angular.module('availability_requests.services', [ ]).
 
       post: function() {
         return service.base.post({
+          email: service.email,
           location_id: service.location.originalObject.id,
           date_start: service.date_start,
           date_end: service.date_end,
-          days_length: service.days_length
+          days_length: service.days_length,
+          site_type: service.site_type.value,
+          eq_len: service.eq_len,
+          electric: service.electric,
+          water: service.water,
+          sewer: service.sewer,
+          pullthru: service.pullthru,
+          waterfront: service.waterfront
         }).then( function(result) {
           service.all.push(result);
           service.location = null;

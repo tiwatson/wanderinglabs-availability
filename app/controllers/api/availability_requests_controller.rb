@@ -7,7 +7,9 @@ class Api::AvailabilityRequestsController < ApplicationController
   end
 
   def create
+    user = User.find_or_create_by(email: params[:email])
     ar = AvailabilityRequest.new(ar_params)
+    ar.user = user
     if ar.save
       render status: 200, json: ar
     else
@@ -27,7 +29,7 @@ class Api::AvailabilityRequestsController < ApplicationController
   private
 
     def ar_params
-      params.require(:availability_request).permit(:location_id, :date_start, :date_end, :days_length, :active)
+      params.require(:availability_request).permit(:location_id, :date_start, :date_end, :days_length, :active, :site_type, :email)
     end
 
 
