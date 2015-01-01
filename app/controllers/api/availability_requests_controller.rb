@@ -7,13 +7,13 @@ class Api::AvailabilityRequestsController < ApplicationController
   end
 
   def create
-    user = User.find_or_create_by(email: params[:email])
+    user = params[:email].present? ? User.find_or_create_by(email: params[:email]) : nil
     ar = AvailabilityRequest.new(ar_params)
     ar.user = user
     if ar.save
       render status: 200, json: ar
     else
-      render status: 401, json: ar.errors
+      render status: 401, json: {error: ar.errors.full_messages.join(", ") }
     end
   end
 

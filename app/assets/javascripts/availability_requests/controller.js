@@ -5,7 +5,13 @@ angular.module('availability_requests.controllers', [])
     $scope.siteOptionsCollapsed = true;
 
     $scope.newRequest = function() {
-      availabilityRequestsService.post();
+      availabilityRequestsService.post().then( function(result) {
+        availabilityRequestsService.flash = 'Success. Feel free to add another.';
+        availabilityRequestsService.flashClass = 'flash-success';
+      }, function(result) {
+        availabilityRequestsService.flash = 'Error. Please fix the following and try again: ' + result.data.error;
+        availabilityRequestsService.flashClass = 'flash-error';
+      });
     };
 
   }])
