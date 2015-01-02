@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-job_type :runner, "cd :path && rbenv shell 2.1.4 && bundle exec rails runner -e :environment ':task' :output"
+job_type :runner, "cd :path && rbenv local 2.1.4 && bundle exec rails runner -e :environment ':task' :output"
 
 set :output, "/home/deploy/wanderinglabs-availability/shared/log/find_availability.log"
 
