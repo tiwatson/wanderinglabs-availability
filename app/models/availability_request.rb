@@ -44,6 +44,8 @@ class AvailabilityRequest < ActiveRecord::Base
       scrape_data(location_connection)
     end
 
+    last_checked = Time.now
+    self.save
   end
 
   def scrape_data(location_connection)

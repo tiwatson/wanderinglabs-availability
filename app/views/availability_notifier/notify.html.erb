@@ -3,238 +3,51 @@
 <head>
 <meta name="viewport" content="width=device-width" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Really Simple HTML Email Template</title>
-<style>
-/* -------------------------------------
-		GLOBAL
-------------------------------------- */
-* {
-	margin: 0;
-	padding: 0;
-	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
-	font-size: 100%;
-	line-height: 1.6;
-}
-
-img {
-	max-width: 100%;
-}
-
-body {
-	-webkit-font-smoothing: antialiased;
-	-webkit-text-size-adjust: none;
-	width: 100%!important;
-	height: 100%;
-}
-
-
-/* -------------------------------------
-		ELEMENTS
-------------------------------------- */
-a {
-	color: #348eda;
-}
-
-.btn-primary {
-	text-decoration: none;
-	color: #FFF;
-	background-color: #348eda;
-	border: solid #348eda;
-	border-width: 10px 20px;
-	line-height: 2;
-	font-weight: bold;
-	margin-right: 10px;
-	text-align: center;
-	cursor: pointer;
-	display: inline-block;
-	border-radius: 25px;
-}
-
-.btn-secondary {
-	text-decoration: none;
-	color: #FFF;
-	background-color: #aaa;
-	border: solid #aaa;
-	border-width: 10px 20px;
-	line-height: 2;
-	font-weight: bold;
-	margin-right: 10px;
-	text-align: center;
-	cursor: pointer;
-	display: inline-block;
-	border-radius: 25px;
-}
-
-.btn-reserve {
-	text-decoration: none;
-	color: #FFF;
-	background-color: #77b57a;
-	border: solid #77b57a;
-	border-width: 2px 12px;
-	line-height: 2;
-	font-weight: bold;
-	margin: 3px 0;
-	text-align: center;
-	cursor: pointer;
-	display: inline-block;
-	border-radius: 12px;
-}
-
-.last {
-	margin-bottom: 0;
-}
-
-.first {
-	margin-top: 0;
-}
-
-.padding {
-	padding: 3px 0;
-}
-
-table.results td {
-	border-bottom: #f0f0f0 1px solid;
-}
-
-/* -------------------------------------
-		BODY
-------------------------------------- */
-table.body-wrap {
-	width: 100%;
-	padding: 20px;
-}
-
-table.body-wrap .container {
-	border: 1px solid #f0f0f0;
-}
-
-
-/* -------------------------------------
-		FOOTER
-------------------------------------- */
-table.footer-wrap {
-	width: 100%;
-	clear: both!important;
-}
-
-.footer-wrap .container p {
-	font-size: 12px;
-	color: #666;
-
-}
-
-table.footer-wrap a {
-	color: #999;
-}
-
-
-/* -------------------------------------
-		TYPOGRAPHY
-------------------------------------- */
-h1, h2, h3 {
-	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-	line-height: 1.1;
-	margin-bottom: 15px;
-	color: #000;
-	margin: 40px 0 10px;
-	line-height: 1.2;
-	font-weight: 200;
-}
-
-h1 {
-	font-size: 36px;
-}
-h2 {
-	font-size: 28px;
-}
-h3 {
-	font-size: 22px;
-}
-
-p, ul, ol {
-	margin-bottom: 10px;
-	font-weight: normal;
-	font-size: 14px;
-}
-
-ul li, ol li {
-	margin-left: 5px;
-	list-style-position: inside;
-}
-
-/* ---------------------------------------------------
-		RESPONSIVENESS
-		Nuke it from orbit. It's the only way to be sure.
------------------------------------------------------- */
-
-/* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
-.container {
-	display: block!important;
-	max-width: 600px!important;
-	margin: 0 auto!important; /* makes it centered */
-	clear: both!important;
-}
-
-/* Set the padding on the td rather than the div for Outlook compatibility */
-.body-wrap .container {
-	padding: 20px;
-}
-
-/* This should also be a block element, so that it will fill 100% of the .container */
-.content {
-	max-width: 600px;
-	margin: 0 auto;
-	display: block;
-}
-
-/* Let's make sure tables in the content area are 100% wide */
-.content table {
-	width: 100%;
-}
-
-</style>
+<title>Wandering Labs Notification</title>
 </head>
 
-<body bgcolor="#f6f6f6">
+<body style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif; font-size: 100%; line-height: 1.6; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: none; width: 100% !important; height: 100%; margin: 0; padding: 0; background-color: #f6f6f6;">
 
 <!-- body -->
-<table class="body-wrap">
+<table style="width: 100%; padding: 20px;">
 	<tr>
 		<td></td>
-		<td class="container" bgcolor="#FFFFFF">
+		<td style="display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto; padding: 20px; border: 1px solid #f0f0f0; background-color: #ffffff;">
 
 			<!-- content -->
-			<div class="content">
-			<table>
+			<div style="max-width: 600px; display: block; margin: 0 auto;">
+			<table style="width: 100%;">
 				<tr>
 					<td>
-						<h3>We found a possible campsite... Be quick and reserve it now</h3>
+						<h3 style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; color: #000; line-height: 1.2; font-weight: 200; font-size: 22px; margin: 40px 0 10px;">
+							We found a possible campsite... Be quick and reserve it now
+						</h3>
 
-						<p>
+						<p style="margin-bottom: 10px; font-weight: normal; font-size: 14px;">
 							You asked us to look for <%= @ar.days_length %> nights sometime between <%= @ar.date_start.strftime('%_m-%-d-%y') %> and <%= @ar.date_end.strftime('%_m-%-d-%y') %>.
 							<br/>
 							This is what we found:
 						</p>
 
-						<table cellspacing=0 class="results">
+						<table cellspacing=0 style="width: 100%;">
 							<tr>
-								<td><b>Date</b></td>
-								<td><b># Nights</b></td>
-								<td><b>Site #</b></td>
-								<td><b>Reserve</b></td>
+								<td style="border-bottom-width: 0; border-bottom-style: solid;"><b>Date</b></td>
+								<td style="border-bottom-width: 0; border-bottom-style: solid;"><b># Nights</b></td>
+								<td style="border-bottom-width: 0; border-bottom-style: solid;"><b>Site #</b></td>
+								<td style="border-bottom-width: 0; border-bottom-style: solid;"><b>Reserve</b></td>
 							</tr>
 							<% @ar.availabilities.to_notify.each do |av| %>
 								<tr>
-									<td><%= av.date_start.strftime('%b %e, %Y') %></td>
-									<td><%= @ar.days_length %></td>
-									<td><%= av.site %></td>
-									<td>
-										<a href="https://github.com/leemunroe/html-email-template" class="btn-reserve">Reserve Now</a>
+									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= av.date_start.strftime('%b %e, %Y') %></td>
+									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= @ar.days_length %></td>
+									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= av.site %></td>
+									<td style="border-bottom-width: 0; border-bottom-style: solid;">
+										<a href="<%= av.reserve_url %>" style="color: #FFF; text-decoration: none; line-height: 2; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 12px; background-color: #77b57a; margin: 3px 0; border-color: #77b57a; border-style: solid; border-width: 2px 12px;">Reserve Now</a>
 									</td>
 								</tr>
 							<% end %>
 						</table>
-						<p>
+						<p style="margin-bottom: 10px; font-weight: normal; font-size: 14px;">
 							This is just a notification. You have not yet made a reservation.<br/>
 							Act fast as someone else may reserve the site before you can. (It may already be re-booked)
 						</p>
@@ -253,17 +66,17 @@ ul li, ol li {
 <!-- /body -->
 
 <!-- footer -->
-<table class="footer-wrap">
+<table  style="width: 100%; clear: both !important;">
 	<tr>
 		<td></td>
-		<td class="container">
+		<td style="display: block !important; max-width: 600px !important; clear: both !important; margin: 0 auto;">
 
 			<!-- content -->
-			<div class="content">
-				<table>
+			<div style="max-width: 600px; display: block; margin: 0 auto;">
+				<table style="width: 100%;">
 					<tr>
 						<td align="center">
-							<p>Don't like these annoying emails? <a href="#"><unsubscribe>Unsubscribe</unsubscribe></a>.
+							<p style="font-size: 12px; color: #666; margin-bottom: 10px; font-weight: normal;">Don't like these annoying emails? <a href="#" style="color: #999;"><unsubscribe>Unsubscribe</unsubscribe></a>.
 							</p>
 						</td>
 					</tr>
