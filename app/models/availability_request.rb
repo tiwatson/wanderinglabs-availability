@@ -8,15 +8,19 @@ class AvailabilityRequest < ActiveRecord::Base
 
   validates_presence_of :location, :user, :date_start, :date_end, :days_length
 
+  before_create do |object|
+    object.active = true
+  end
+
   after_save do |object|
-    if object.availabilities.to_notify.count > 0
+    if object.availabilities.is_available.to_notify.count > 0
       AvailabilityNotifier.notify(object.id).deliver
       object.availabilities.is_available.to_notify.update_all(notified_at: Time.now)
     end
   end
 
   def self.find_availability
-    AvailabilityRequest.find_each do |ar|
+    AvailabilityRequest.where(active: true).find_each do |ar|
       ar.find_availability
     end
   end
@@ -31,6 +35,8 @@ class AvailabilityRequest < ActiveRecord::Base
   end
 
   def find_availability
+    return if self.active == false
+
     self.availabilities.update_all(available: false)
 
     location_connection = LocationConnection.new(location)
