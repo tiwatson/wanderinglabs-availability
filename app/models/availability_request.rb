@@ -11,7 +11,7 @@ class AvailabilityRequest < ActiveRecord::Base
   after_save do |object|
     if object.availabilities.to_notify.count > 0
       AvailabilityNotifier.notify(object.id).deliver
-      # TODO - set notify date
+      object.availabilities.is_available.to_notify.update_all(notified_at: Time.now)
     end
   end
 
@@ -81,7 +81,7 @@ class AvailabilityRequest < ActiveRecord::Base
         if availability.present?
           availability.update_attribute(:available, true)
         end
-        
+
         site[1].shift(chunk[1])
       end
     end
