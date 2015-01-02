@@ -23,6 +23,6 @@ job_type :runner, "export PATH=\"$HOME/.rbenv/bin:$PATH\"; eval \"$(rbenv init -
 
 set :output, "/home/deploy/wanderinglabs-availability/shared/log/find_availability.log"
 
-every 15.minutes do
+every 5.minutes do
   runner "AvailabilityRequest.find_availability"
 end
