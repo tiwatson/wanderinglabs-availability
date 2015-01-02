@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+job_type :runner, "cd :path && bundle exec rails runner -e :environment ':task' :output"
+
 set :output, "/home/deploy/wanderinglabs-availability/shared/log/find_availability.log"
 
 every 15.minutes do
