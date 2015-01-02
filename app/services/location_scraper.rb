@@ -13,7 +13,10 @@ class LocationScraper
   end
 
   def sites
-    @_sites ||= sites_with_availability.css('td.sn > div.siteListLabel > a').map(&:text)
+    #@_sites ||= sites_with_availability.css('td.sn > div.siteListLabel > a').map(&:text)
+    @_sites ||= sites_with_availability.css('td.sn > div.siteListLabel > a').collect do |a|
+      [ a.text, a['href'].match(/siteId=(\d*)/)[1] ]
+    end
   end
 
   def statuses

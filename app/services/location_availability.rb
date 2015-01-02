@@ -1,13 +1,15 @@
 class LocationAvailability
 
-  attr_accessor :ar, :available, :days_length, :site_number, :date_start
+  attr_accessor :ar, :available, :days_length, :site_number, :site_id, :date_start
 
-  def initialize(ar, chunk, site)
+  def initialize(ar, chunk, site, site_id)
     @ar = ar
     @available = chunk[0]
     @days_length = chunk[1]
 
-    @site_number = site[0]
+    @site_number = site[0][0]
+    @site_id = site[0][1]
+
     if site[1][0].present?
       date_start_array = site[1][0].split('/')
       @date_start = Time.new(date_start_array[2],date_start_array[0],date_start_array[1]).to_date
@@ -25,7 +27,7 @@ class LocationAvailability
 
   def availability
     return unless is_available?
-    @_availability ||= Availability.find_or_create_by(availability_request_id: ar.id, site: site_number, date_start: date_start, days_length: days_length)
+    @_availability ||= Availability.find_or_create_by(availability_request_id: ar.id, site: site_number, site_id: site_id, date_start: date_start, days_length: days_length)
   end
 
 

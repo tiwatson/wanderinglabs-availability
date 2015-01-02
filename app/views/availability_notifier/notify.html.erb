@@ -39,7 +39,7 @@
 							<% @ar.availabilities.to_notify.each do |av| %>
 								<tr>
 									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= av.date_start.strftime('%b %e, %Y') %></td>
-									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= @ar.days_length %></td>
+									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= av.days_length %></td>
 									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= av.site %></td>
 									<td style="border-bottom-width: 0; border-bottom-style: solid;">
 										<a href="<%= av.reserve_url %>" style="color: #FFF; text-decoration: none; line-height: 2; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 12px; background-color: #77b57a; margin: 3px 0; border-color: #77b57a; border-style: solid; border-width: 2px 12px;">Reserve Now</a>
