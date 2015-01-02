@@ -36,7 +36,7 @@
 								<td style="border-bottom-width: 0; border-bottom-style: solid;"><b>Site #</b></td>
 								<td style="border-bottom-width: 0; border-bottom-style: solid;"><b>Reserve</b></td>
 							</tr>
-							<% @ar.availabilities.to_notify.each do |av| %>
+							<% @ar.availabilities.is_available.to_notify.order(:date_start).each do |av| %>
 								<tr>
 									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= av.date_start.strftime('%b %e, %Y') %></td>
 									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= av.days_length %></td>

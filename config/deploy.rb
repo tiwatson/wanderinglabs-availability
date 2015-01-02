@@ -50,7 +50,6 @@ end
 namespace :app do
   desc 'Open a rails console `cap [staging] rails:console [server_index default: 0]`'
   task :console do
-    puts "Start.."
     on roles(:app) do |server|
       server_index = ARGV[2].to_i
 

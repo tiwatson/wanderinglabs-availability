@@ -3,6 +3,7 @@ class Availability < ActiveRecord::Base
   belongs_to :availability_request
 
   scope :to_notify, -> { where(notified_at: nil) }
+  scope :is_available, -> { where(available: true) }
 
   def location
     self.availability_request.location

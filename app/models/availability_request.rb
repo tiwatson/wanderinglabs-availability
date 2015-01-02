@@ -9,10 +9,9 @@ class AvailabilityRequest < ActiveRecord::Base
   validates_presence_of :location, :user, :date_start, :date_end, :days_length
 
   after_save do |object|
-    logger.info "AFTER SAVE #{object.id} - #{object.availabilities.to_notify.count}"
     if object.availabilities.to_notify.count > 0
-      logger.info "DELIVER"
       AvailabilityNotifier.notify(object.id).deliver
+      # TODO - set notify date
     end
   end
 
@@ -32,6 +31,7 @@ class AvailabilityRequest < ActiveRecord::Base
   end
 
   def find_availability
+    self.availabilities.update_all(available: false)
 
     location_connection = LocationConnection.new(location)
 
@@ -78,6 +78,7 @@ class AvailabilityRequest < ActiveRecord::Base
 
         location_availability = LocationAvailability.new(self, chunk, site)
         availability = location_availability.availability
+        availability.update_attribute(:available, true)
 
         site[1].shift(chunk[1])
       end
