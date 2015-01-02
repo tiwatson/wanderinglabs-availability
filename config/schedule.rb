@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-set :output, "/home/deploy/wanderinglabs-availability/log/find_availability.log"
+set :output, "/home/deploy/wanderinglabs-availability/shared/log/find_availability.log"
 
 every 15.minutes do
   runner "AvailabilityRequest.find_availability"
