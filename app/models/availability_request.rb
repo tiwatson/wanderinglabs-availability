@@ -14,6 +14,12 @@ class AvailabilityRequest < ActiveRecord::Base
     end
   end
 
+  def self.find_availability
+    AvailabilityRequest.find_each do |ar|
+      ar.find_availability
+    end
+  end
+
   def expired
     self.date_end < Time.now
   end

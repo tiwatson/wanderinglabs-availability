@@ -1,6 +1,8 @@
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
+require "whenever/capistrano"
+
 set :application, 'wanderinglabs-availability'
 set :repo_url, 'http://github.com/tiwatson/wanderinglabs-availability'
 
