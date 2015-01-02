@@ -80,25 +80,25 @@ class AvailabilityRequest < ActiveRecord::Base
     end
   end
 
-  # def query
-  #   {
-  #       "contractCode"=> location.state,
-  #      "parkId"=> location.park_id,
-  #      "siteTypeFilter"=>"ALL",
-  #      "availStatus"=>"",
-  #      "submitSiteForm"=>"true",
-  #      "search"=>"site",
-  #      "campingDate"=>date_start.strftime("%a %b %d %Y"),
-  #      "lengthOfStay"=> days_length,
-  #      "campingDateFlex"=>"",
-  #      "currentMaximumWindow"=>"12",
-  #      "contractDefaultMaxWindow"=>"MS:24,LT:18,GA:24",
-  #      "stateDefaultMaxWindow"=>"MS:24,GA:24",
-  #      "defaultMaximumWindow"=>"12",
-  #      "loop"=>"",
-  #      "siteCode"=>"",
-  #      "lookingFor"=>"2001"
-  #   }
-  # end
+  def query
+    {
+      "contractCode"=> location.state,
+      "parkId"=> location.park_id,
+      "siteTypeFilter"=>"ALL",
+      "availStatus"=>"",
+      "submitSiteForm"=>"true",
+      "search"=>"site",
+      "campingDate"=>date_start.strftime("%a %b %d %Y"),
+      "lengthOfStay"=> days_length,
+      "campingDateFlex"=>"",
+      "currentMaximumWindow"=>"12",
+      "contractDefaultMaxWindow"=>"MS:24,LT:18,GA:24",
+      "stateDefaultMaxWindow"=>"MS:24,GA:24",
+      "defaultMaximumWindow"=>"12",
+      "loop"=>"",
+      "siteCode"=>"",
+      "lookingFor"=> site_type
+    }
+  end
 
 end
