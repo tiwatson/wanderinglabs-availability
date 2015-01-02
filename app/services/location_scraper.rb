@@ -27,8 +27,8 @@ class LocationScraper
 
   def doc
     @_doc ||= self.get.page.parser
-    puts @_doc
-    @_doc
+    # puts @_doc
+    # @_doc
   end
 
   def get

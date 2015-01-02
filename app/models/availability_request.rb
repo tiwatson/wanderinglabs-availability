@@ -9,7 +9,9 @@ class AvailabilityRequest < ActiveRecord::Base
   validates_presence_of :location, :user, :date_start, :date_end, :days_length
 
   after_save do |object|
+    logger.info "AFTER SAVE #{object.id} - #{object.availabilities.to_notify.count}"
     if object.availabilities.to_notify.count > 0
+      logger.info "DELIVER"
       AvailabilityNotifier.notify(object.id).deliver
     end
   end
@@ -36,9 +38,9 @@ class AvailabilityRequest < ActiveRecord::Base
     location_filter = LocationFilter.new(location_connection, location, self)
     location_filter.post_filters
 
-    self.next_date = date_start
+    self.next_date = date_start < Time.now.to_date ? Time.now.to_date : date_start
     while next_date < (date_end - days_length)
-      #puts "Scraping for #{next_date}"
+      puts "Scraping for #{next_date}"
       scrape_data(location_connection)
     end
 
