@@ -78,8 +78,10 @@ class AvailabilityRequest < ActiveRecord::Base
 
         location_availability = LocationAvailability.new(self, chunk, site)
         availability = location_availability.availability
-        availability.update_attribute(:available, true)
-
+        if availability.present?
+          availability.update_attribute(:available, true)
+        end
+        
         site[1].shift(chunk[1])
       end
     end
