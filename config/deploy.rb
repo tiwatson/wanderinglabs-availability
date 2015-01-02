@@ -46,3 +46,23 @@ namespace :deploy do
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
 end
+
+namespace :app do
+  desc 'Open a rails console `cap [staging] rails:console [server_index default: 0]`'
+  task :console do
+    puts "Start.."
+    on roles(:app) do |server|
+      server_index = ARGV[2].to_i
+
+      return if server != roles(:app)[server_index]
+
+      puts "Opening a console on: #{host}...."
+
+      cmd = "ssh #{server.user}@#{host} -t 'export PATH=\"$HOME/.rbenv/bin:$PATH\"; eval \"$(rbenv init -)\"; cd #{fetch(:deploy_to)}/current && RAILS_ENV=#{fetch(:rails_env)} bundle exec rails console'"
+
+      puts cmd
+
+      exec cmd
+    end
+  end
+end

@@ -2,7 +2,7 @@ class LocationAvailability
 
   attr_accessor :ar, :available, :days_length, :site_number, :site_id, :date_start
 
-  def initialize(ar, chunk, site, site_id)
+  def initialize(ar, chunk, site)
     @ar = ar
     @available = chunk[0]
     @days_length = chunk[1]
