@@ -5,7 +5,7 @@ Application that scrapes Reserve America according to queries provided by the en
 
 Useful for when wanting to camp at a fully booked campground. If someone else cancels their reservation, this app will let you know so you may then book it.
 
-See it in action (http://railsapps.github.io/installing-rails.html)
+See it in action (http://reserve.wanderinglabs.com)
 
 Credits
 -----------
