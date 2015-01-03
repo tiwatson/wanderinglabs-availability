@@ -67,7 +67,7 @@ class AvailabilityRequest < ActiveRecord::Base
     if scraped_data.empty?
       puts "EMPTY - try date #{self.next_date + 1 }"
       # raise "Bad date: #{self.id}: #{next_date}"
-      new_next_date( self.next_date + 1 )
+      self.next_date =  self.next_date + 1
     else
       new_next_date( scraped_data[0][1][0] )
       parse_scraped_data( scraped_data )
