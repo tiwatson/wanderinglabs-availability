@@ -28,6 +28,10 @@ class AvailabilityRequest < ActiveRecord::Base
     end
   end
 
+  def date_start_offset
+    date_start < (Time.now.to_date + 1) ? (Time.now.to_date + 1) : date_start
+  end
+
   def expired
     self.date_end < Time.now
   end
@@ -47,7 +51,7 @@ class AvailabilityRequest < ActiveRecord::Base
     location_filter = LocationFilter.new(location_connection, location, self)
     location_filter.post_filters
 
-    self.next_date = date_start < Time.now.to_date ? Time.now.to_date : date_start
+    self.next_date = self.date_start_offset
     while next_date < (date_end - days_length)
       puts "Scraping for #{next_date}"
       scrape_data(location_connection)
@@ -108,7 +112,7 @@ class AvailabilityRequest < ActiveRecord::Base
       "availStatus"=>"",
       "submitSiteForm"=>"true",
       "search"=>"site",
-      "campingDate"=>date_start.strftime("%a %b %d %Y"),
+      "campingDate"=>date_start_offset.strftime("%a %b %d %Y"),
       "lengthOfStay"=> days_length,
       "campingDateFlex"=>"",
       "currentMaximumWindow"=>"12",

@@ -22,7 +22,7 @@ class CampsiteFilter
     {
       'contractCode' => location.state,
       'parkId' => location.park_id,
-      'arvdate' => availability_request.date_start.strftime("%m/%d/%Y"),
+      'arvdate' => availability_request.date_start_offset.strftime("%m/%d/%Y"),
       'lengthOfStay' => availability_request.days_length,
       #'siteType' => availability_request.site_type,
       'eqplen' => availability_request.eq_len,
