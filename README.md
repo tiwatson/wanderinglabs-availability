@@ -1,48 +1,14 @@
 Wanderinglabs Availability
 ================
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+Application that scrapes Reserve America according to queries provided by the end users. Looks for open campsites then notifies them via email.
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+Useful for when wanting to camp at a fully booked campground. If someone else cancels their reservation, this app will let you know so you may then book it.
 
-Problems? Issues?
------------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn’t work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
-
-This application requires:
-
-- Ruby 2.1.0
-- Rails 4.1.0
-
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
-
-Getting Started
----------------
-
-Documentation and Support
--------------------------
-
-Issues
--------------
-
-Similar Projects
-----------------
-
-Contributing
-------------
+See it in action (http://railsapps.github.io/installing-rails.html)
 
 Credits
--------
+-----------
 
-License
--------
+Create by [Tim Watson](http://tiwatson.com)
+As part of the [Wandering Labs Project](http://wanderinglabs.com)
