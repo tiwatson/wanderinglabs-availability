@@ -41,9 +41,9 @@
 							Act fast as someone else may reserve the site before you can. (It may already be re-booked)
 						</p>
 
-						<p style="margin-bottom: 10px; font-weight: normal; font-size: 14px;">
-							<a href="<%= deactivate_found_user_availability_request_url(@ar.user, @ar, token: @ar.user.authentication_token) %>">I got a reservation! Stop Notifications</a> |
-							<a href="<%= deactivate_user_availability_request_url(@ar.user, @ar, token: @ar.user.authentication_token) %>">No longer looking. Stop Notifications</a>
+						<p style="margin-bottom: 10px; font-weight: bold; font-size: 16px;">
+							<a href="<%= deactivate_found_user_availability_request_url(@ar.user, @ar, token: @ar.user.authentication_token) %>"  style="color: #77b57a; text-decoration: none; line-height: 2; font-weight: bold; cursor: pointer;">I got a reservation! Stop Notifications</a> |
+							<a href="<%= deactivate_user_availability_request_url(@ar.user, @ar, token: @ar.user.authentication_token) %>" style="color: #a3a3a3; text-decoration: none; line-height: 2; font-weight: bold; cursor: pointer;">No longer looking. Stop Notifications</a>
 						</p>
 					</td>
 				</tr>
