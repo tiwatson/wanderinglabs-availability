@@ -1,7 +1,7 @@
 class CampsiteFilter
 
   API_URL = 'http://api.amp.active.com/camping/campsites'
-  API_KEY = 'p5uucxuptj7n5rwxyfth3vvk'
+  API_KEY = Rails.application.secrets.campsites_api_key
 
   attr_accessor :location, :availability_request
 
