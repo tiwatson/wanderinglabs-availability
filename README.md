@@ -10,5 +10,6 @@ See it in action (http://railsapps.github.io/installing-rails.html)
 Credits
 -----------
 
-Create by [Tim Watson](http://tiwatson.com)
+Created by [Tim Watson](http://tiwatson.com)
+
 As part of the [Wandering Labs Project](http://wanderinglabs.com)
