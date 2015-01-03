@@ -6,6 +6,18 @@ Rails.application.routes.draw do
     resources :locations, only: [:index]
   end
 
+  resources :users, only: [] do
+    member do
+      get :deactivate
+    end
+
+    resources :availability_requests, only: [] do
+      member do
+        get :deactivate
+        get :deactivate_found
+      end
+    end
+  end
   #get '/*path', to: 'angular#index'
   root 'angular#index'
 
