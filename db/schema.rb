@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150102165704) do
+ActiveRecord::Schema.define(version: 20150103003146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,21 +43,22 @@ ActiveRecord::Schema.define(version: 20150102165704) do
 
   create_table "availability_requests", force: :cascade do |t|
     t.integer  "location_id"
-    t.boolean  "active",       default: false, null: false
+    t.boolean  "active",         default: false, null: false
     t.date     "date_start"
     t.date     "date_end"
     t.integer  "days_length"
     t.integer  "site_type"
     t.integer  "electric"
-    t.boolean  "water",        default: false, null: false
-    t.boolean  "sewer",        default: false, null: false
-    t.boolean  "pullthru",     default: false, null: false
-    t.boolean  "waterfront",   default: false, null: false
+    t.boolean  "water",          default: false, null: false
+    t.boolean  "sewer",          default: false, null: false
+    t.boolean  "pullthru",       default: false, null: false
+    t.boolean  "waterfront",     default: false, null: false
     t.datetime "last_checked"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "eq_len"
+    t.text     "matching_sites"
   end
 
   create_table "location_agencies", force: :cascade do |t|

@@ -4,12 +4,15 @@ class AvailabilityRequest < ActiveRecord::Base
   belongs_to :user
   belongs_to :location
 
+  serialize :matching_sites, Array
+
   attr_accessor :next_date
 
   validates_presence_of :location, :user, :date_start, :date_end, :days_length
 
   before_create do |object|
     object.active = true
+    object.filter_campsites
   end
 
   after_save do |object|
@@ -31,7 +34,7 @@ class AvailabilityRequest < ActiveRecord::Base
 
   def filter_campsites
     cf = CampsiteFilter.new(location, self).matching_sites
-    cf
+    self.matching_sites = cf
   end
 
   def find_availability
@@ -81,11 +84,13 @@ class AvailabilityRequest < ActiveRecord::Base
       chunked.each do |chunk|
 
         puts "SITE - #{site[0]}"
-
-        location_availability = LocationAvailability.new(self, chunk, site)
-        availability = location_availability.availability
-        if availability.present?
-          availability.update_attribute(:available, true)
+        if self.matching_sites.include?(site[0][1])
+          puts "\t Matches site list.. create availability"
+          location_availability = LocationAvailability.new(self, chunk, site)
+          availability = location_availability.availability
+          if availability.present?
+            availability.update_attribute(:available, true)
+          end
         end
 
         site[1].shift(chunk[1])
