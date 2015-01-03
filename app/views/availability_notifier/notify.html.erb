@@ -23,30 +23,19 @@
 							We found a possible campsite... Be quick and reserve it now
 						</h3>
 
-						<p style="margin-bottom: 10px; font-weight: normal; font-size: 14px;">
+						<p style="margin-bottom: 10px; font-weight: normal; font-size: 16px;">
 							You asked us to look for <%= @ar.days_length %> nights sometime between <%= @ar.date_start.strftime('%_m-%-d-%y') %> and <%= @ar.date_end.strftime('%_m-%-d-%y') %>.
-							<br/>
-							This is what we found:
 						</p>
 
-						<table cellspacing=0 style="width: 100%;">
-							<tr>
-								<td style="border-bottom-width: 0; border-bottom-style: solid;"><b>Date</b></td>
-								<td style="border-bottom-width: 0; border-bottom-style: solid;"><b># Nights</b></td>
-								<td style="border-bottom-width: 0; border-bottom-style: solid;"><b>Site #</b></td>
-								<td style="border-bottom-width: 0; border-bottom-style: solid;"><b>Reserve</b></td>
-							</tr>
-							<% @ar.availabilities.is_available.order(:date_start).each do |av| %>
-								<tr>
-									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= av.date_start.strftime('%b %e, %Y') %></td>
-									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= av.days_length %></td>
-									<td style="border-bottom-width: 0; border-bottom-style: solid;"><%= av.site %></td>
-									<td style="border-bottom-width: 0; border-bottom-style: solid;">
-										<a href="<%= av.reserve_url %>" style="color: #FFF; text-decoration: none; line-height: 2; font-weight: bold; text-align: center; cursor: pointer; display: inline-block; border-radius: 12px; background-color: #77b57a; margin: 3px 0; border-color: #77b57a; border-style: solid; border-width: 2px 12px;">Reserve Now</a>
-									</td>
-								</tr>
-							<% end %>
-						</table>
+						<h4 style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; color: #000; line-height: 1.2; ; font-size: 18px; margin: 10px 0;">New availabilities:</h4>
+
+						<%= render partial: 'notify_listings', locals: { availabilities: @availabilities_new } %>
+
+						<% if @availabilities_past.count > 0 %>
+							<h4 style="font-family: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; color: #000; line-height: 1.2; ; font-size: 18px; margin: 10px 0;">Previously notified availabilities, but still open:</h4>
+							<%= render partial: 'notify_listings', locals: { availabilities: @availabilities_past } %>
+						<% end %>
+
 						<p style="margin-bottom: 10px; font-weight: normal; font-size: 14px;">
 							This is just a notification. You have not yet made a reservation.<br/>
 							Act fast as someone else may reserve the site before you can. (It may already be re-booked)
