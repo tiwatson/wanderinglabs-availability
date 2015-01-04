@@ -1,7 +1,7 @@
 class Api::AvailabilityRequestsController < ApplicationController
 
   def index
-    ar = AvailabilityRequest.all
+    ar = AvailabilityRequest.where(active: true).all
     render status: 200, json: ar, root: false
 
   end

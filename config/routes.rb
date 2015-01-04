@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :availability_requests
     resources :locations, only: [:index]
+    resources :availabilities, only: [:index]
   end
 
   resources :users, only: [] do
