@@ -38,8 +38,10 @@ namespace :deploy do
 
   desc 'Restart application'
   task :restart do
-    on roles(:app), in: :sequence, wait: 5 do
-      execute :touch, release_path.join('tmp/restart.txt')
+    on roles(:app) do |server|
+      cmd = "ssh #{server.user}@#{host} -t 'export PATH=\"$HOME/.rbenv/bin:$PATH\"; eval \"$(rbenv init -)\"; kill -9 `cat #{fetch(:deploy_to)}/shared/tmp/pids/unicorn.pid` && cd #{fetch(:deploy_to)}/current && bundle exec unicorn_rails -c config/unicorn.rb -E production -D' "
+      puts cmd
+      exec cmd
     end
   end
 

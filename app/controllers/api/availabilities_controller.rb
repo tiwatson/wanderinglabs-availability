@@ -1,7 +1,7 @@
-class Api::AvailabilityRequestsController < ApplicationController
+class Api::AvailabilitiesController < ApplicationController
 
   def index
-    a = Availbility.where(available: true).all
+    a = Availability.where(available: true).all
     render status: 200, json: a, root: false
   end
 
