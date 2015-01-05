@@ -57,7 +57,8 @@ class AvailabilityRequest < ActiveRecord::Base
       scrape_data(location_connection)
     end
 
-    last_checked = Time.now
+    puts "Done scraping #{self.id}"
+    self.last_checked = Time.now
     self.save
   end
 
