@@ -20,7 +20,7 @@ class CampsiteFilter
 
   def query_hash
     {
-      'contractCode' => location.state,
+      'contractCode' => location.contract_code,
       'parkId' => location.park_id,
       'arvdate' => availability_request.date_start_offset.strftime("%m/%d/%Y"),
       'lengthOfStay' => availability_request.days_length,
