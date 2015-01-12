@@ -18,6 +18,19 @@ class AvailabilityRequest < ActiveRecord::Base
   after_save do |object|
     if object.availabilities.is_available.to_notify.count > 0
       AvailabilityNotifier.notify(object.id).deliver
+
+      if object.user.phone.present?
+        @availabilities_new = object.availabilities.is_available.to_notify.order(:date_start)
+        link = Bitly.client.shorten(@availabilities_new.first.reserve_url)
+        
+        if
+        @client = Twilio::REST::Client.new
+        @client.messages.create(
+          to: "+1#{object.user.phone}",
+          body: 'Hey there!'
+        )
+      end
+
       object.availabilities.is_available.to_notify.update_all(notified_at: Time.now)
     end
   end
