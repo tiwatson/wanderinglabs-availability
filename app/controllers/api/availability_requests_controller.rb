@@ -29,7 +29,7 @@ class Api::AvailabilityRequestsController < ApplicationController
   private
 
     def ar_params
-      params.require(:availability_request).permit(:location_id, :date_start, :date_end, :days_length, :active, :site_type, :email)
+      params.require(:availability_request).permit(:location_id, :date_start, :date_end, :days_length, :active, :site_type, :email, :electric, :water, :sewer, :eq_len, :pullthru, :waterfront)
     end
 
 

@@ -12,7 +12,6 @@ class AvailabilityRequest < ActiveRecord::Base
 
   before_create do |object|
     object.active = true
-    object.filter_campsites
   end
 
   after_save do |object|
@@ -48,11 +47,6 @@ class AvailabilityRequest < ActiveRecord::Base
 
   def expired
     self.date_end < Time.now
-  end
-
-  def filter_campsites
-    #cf = CampsiteFilter.new(location, self).matching_sites
-    #self.matching_sites = cf
   end
 
   def find_availability
@@ -105,14 +99,12 @@ class AvailabilityRequest < ActiveRecord::Base
       chunked.each do |chunk|
 
         puts "SITE - #{site[0]}"
-        #if self.matching_sites.include?(site[0][1])
-          puts "\t Matches site list.. create availability"
-          location_availability = LocationAvailability.new(self, chunk, site)
-          availability = location_availability.availability
-          if availability.present?
-            availability.update_attribute(:available, true)
-          end
-        #end
+        location_availability = LocationAvailability.new(self, chunk, site)
+        availability = location_availability.availability
+        if availability.present?
+          puts "\t Available: true"
+          availability.update_attribute(:available, true)
+        end
 
         site[1].shift(chunk[1])
       end
@@ -136,8 +128,45 @@ class AvailabilityRequest < ActiveRecord::Base
       "defaultMaximumWindow"=>"12",
       "loop"=>"",
       "siteCode"=>"",
-      "lookingFor"=> site_type
-    }
+      "lookingFor"=> site_type,
+    }.merge(query_site_type)
+  end
+
+  def query_site_type
+    if site_type == 2001
+      {
+        "camping_2001_moreOptions" => true,
+        "camping_2001_3013" => eq_len,
+        "camping_2001_218" => electric,
+        "camping_2001_3006" => water,
+        "camping_2001_3007" => sewer,
+        "camping_2001_3008" => pullthru,
+        "camping_2001_3011" => waterfront
+      }
+    elsif site_type == 2002
+      {
+        "camping_2002_moreOptions" => true,
+        "camping_2002_3013" => eq_len,
+        "camping_2002_218" => electric,
+        "camping_2002_3006" => water,
+        "camping_2002_3007" => sewer,
+        "camping_2002_3008" => pullthru,
+        "camping_2002_3011" => waterfront
+      }
+    elsif site_type == 2003
+      {
+        "camping_2003_moreOptions" => true,
+        "camping_2003_3011" => waterfront
+
+      }
+    elsif site_type == 10001
+      {
+        "camping_10001_moreOptions" => true,
+        "camping_10001_3011" => waterfront
+      }
+    else
+      {}
+    end
   end
 
 end
