@@ -27,6 +27,7 @@ class AvailabilityRequest < ActiveRecord::Base
         @client = Twilio::REST::Client.new
         @client.messages.create(
           to: "+1#{object.user.phone}",
+          from: "8028585556",
           body: "#{av.location.name} - #{av.date_start.strftime('%b %e, %Y')} - #{av.days_length} - #{link}"
         )
       end
