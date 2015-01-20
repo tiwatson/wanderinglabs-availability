@@ -28,7 +28,7 @@ class AvailabilityRequest < ActiveRecord::Base
         @client.messages.create(
           to: "+1#{object.user.phone}",
           from: "8028585556",
-          body: "WanderingLabs Availability - #{av.location.name} - #{av.date_start.strftime('%b %e, %Y')} - #{av.days_length} Nights - #{link.bitly_url}"
+          body: "WanderingLabs Availability - #{av.location.name} - #{av.date_start.strftime('%b %e, %Y')} - #{av.days_length} Nights - #{link.short_url}"
         )
       end
 
