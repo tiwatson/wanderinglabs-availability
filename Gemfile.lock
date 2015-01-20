@@ -73,6 +73,10 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bitly (0.10.4)
+      httparty (>= 0.7.6)
+      multi_json (~> 1.3)
+      oauth2 (>= 0.5.0, < 2.0)
     bitters (0.10.1)
       bourbon (>= 3.2)
       sass (>= 3.2)
@@ -134,6 +138,8 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.6)
     formatador (0.2.5)
     globalid (0.3.0)
@@ -187,6 +193,7 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.1)
+    jwt (1.0.0)
     kgio (2.9.2)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -216,6 +223,7 @@ GEM
     minitest (5.5.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
+    multipart-post (2.0.0)
     nenv (0.1.1)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9.4)
@@ -225,6 +233,12 @@ GEM
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     ntlm-http (0.1.1)
+    oauth2 (1.0.0)
+      faraday (>= 0.8, < 0.10)
+      jwt (~> 1.0)
+      multi_json (~> 1.3)
+      multi_xml (~> 0.5)
+      rack (~> 1.2)
     orm_adapter (0.5.0)
     pg (0.17.1)
     pry (0.10.1)
@@ -348,6 +362,10 @@ GEM
       hitimes
     turbolinks (2.5.3)
       coffee-rails
+    twilio-ruby (3.14.4)
+      builder (>= 2.1.2)
+      jwt (~> 1.0.0)
+      multi_json (>= 1.3.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.6.0)
@@ -376,6 +394,7 @@ DEPENDENCIES
   active_model_serializers!
   better_errors
   binding_of_caller
+  bitly
   bitters
   capistrano
   capistrano-bundler
@@ -423,6 +442,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   turbolinks
+  twilio-ruby (~> 3.12)
   uglifier (>= 1.3.0)
   unicorn
   whenever
