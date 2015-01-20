@@ -51,8 +51,8 @@ class AvailabilityRequest < ActiveRecord::Base
   end
 
   def filter_campsites
-    cf = CampsiteFilter.new(location, self).matching_sites
-    self.matching_sites = cf
+    #cf = CampsiteFilter.new(location, self).matching_sites
+    #self.matching_sites = cf
   end
 
   def find_availability
@@ -105,14 +105,14 @@ class AvailabilityRequest < ActiveRecord::Base
       chunked.each do |chunk|
 
         puts "SITE - #{site[0]}"
-        if self.matching_sites.include?(site[0][1])
+        #if self.matching_sites.include?(site[0][1])
           puts "\t Matches site list.. create availability"
           location_availability = LocationAvailability.new(self, chunk, site)
           availability = location_availability.availability
           if availability.present?
             availability.update_attribute(:available, true)
           end
-        end
+        #end
 
         site[1].shift(chunk[1])
       end
