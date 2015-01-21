@@ -14,6 +14,15 @@ angular.module('availability_requests.controllers', [])
       });
     };
 
+    $scope.dateStartFilter = function(d) {
+      var today = new Date();
+      return(d > today);
+    };
+
+    $scope.dateEndFilter = function(d) {
+      return((typeof $scope.ar.date_start !== 'undefined') && (d > $scope.ar.date_start));
+    };
+
   }])
 
   .controller('AvailabilityRequestsController', ['$scope', '$state', 'availabilityRequestsService', function($scope, $state, availabilityRequestsService) {

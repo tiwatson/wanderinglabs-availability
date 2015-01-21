@@ -22,7 +22,8 @@ $desktop: new-breakpoint(min-width $large-screen);
 @import 'flash';
 
 @import 'font-awesome';
-@import 'ngQuickDate';
+@import 'ng-quick-date';
+@import 'ng-quick-date-default-theme';
 @import 'angucomplete-alt';
 
 .wrap {
@@ -171,4 +172,9 @@ footer {
     @include span-columns(12);
 
   }
+}
+
+
+table.quickdate-calendar td.disabled-date {
+  color: #ddd;
 }

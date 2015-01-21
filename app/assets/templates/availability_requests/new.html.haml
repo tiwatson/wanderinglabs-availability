@@ -17,11 +17,11 @@
   .row
     .quarter
       %label.required{ for: 'date_start' }Date Start
-      %quick-datepicker{ 'ng-model' => 'ar.date_start', 'placeholder' => 'Set Date', 'disable-timepicker' => 'true' }
+      %quick-datepicker{ 'ng-model' => 'ar.date_start', 'placeholder' => 'Set Date', 'disable-timepicker' => 'true', 'date-filter' => 'dateStartFilter', 'on-change' => 'dateChange()' }
 
     .quarter
       %label.required{ for: 'date_start' }Date End
-      %quick-datepicker{ 'ng-model' => 'ar.date_end', 'placeholder' => 'Set Date', 'disable-timepicker' => 'true' }
+      %quick-datepicker{ 'ng-model' => 'ar.date_end', 'placeholder' => 'Set Date', 'disable-timepicker' => 'true', 'date-filter' => 'dateEndFilter', 'on-change' => 'dateChange()' }
 
     .quarter
       %label.required{ for: 'days_length' }# of nights

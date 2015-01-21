@@ -276,8 +276,6 @@ GEM
     rails-assets-lodash (2.4.1)
     rails-assets-neat (1.7.0)
       rails-assets-bourbon (>= 4.0)
-    rails-assets-ngQuickDate (1.3.3)
-      rails-assets-angular (~> 1.2.0)
     rails-assets-normalize-css (3.0.2)
     rails-assets-restangular (1.4.0)
       rails-assets-angular
@@ -429,7 +427,6 @@ DEPENDENCIES
   rails-assets-font-awesome
   rails-assets-lodash
   rails-assets-neat
-  rails-assets-ngQuickDate
   rails-assets-normalize-css
   rails-assets-restangular
   rails_layout

@@ -68,7 +68,6 @@ gem 'rails-assets-angular'
 gem 'rails-assets-angular-ui-router'
 gem 'rails-assets-lodash'
 gem 'rails-assets-restangular'
-gem 'rails-assets-ngQuickDate'
 gem 'rails-assets-angucomplete-alt'
 
 # gem 'rails-assets-angucomplete-alt'
