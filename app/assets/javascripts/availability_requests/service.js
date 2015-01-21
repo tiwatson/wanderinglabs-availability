@@ -42,7 +42,6 @@ angular.module('availability_requests.services', [ ]).
           waterfront: service.waterfront
         }).then( function(result) {
           service.all.push(result);
-          service.location = null;
           service.date_start = null;
           service.date_end = null;
         });
