@@ -4,8 +4,6 @@ class AvailabilityRequest < ActiveRecord::Base
   belongs_to :user
   belongs_to :location
 
-  serialize :matching_sites, Array
-
   attr_accessor :next_date
 
   validates_presence_of :location, :user, :date_start, :date_end, :days_length
