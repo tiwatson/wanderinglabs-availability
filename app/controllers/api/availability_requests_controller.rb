@@ -8,6 +8,10 @@ class Api::AvailabilityRequestsController < ApplicationController
 
   def create
     user = params[:email].present? ? User.find_or_create_by(email: params[:email]) : nil
+    if params[:phone].present?
+      user.update_attribute(:phone, params[:phone])
+    end
+    
     ar = AvailabilityRequest.new(ar_params)
     ar.user = user
     if ar.save
