@@ -86,6 +86,10 @@ class AvailabilityRequest < ActiveRecord::Base
   end
 
   def new_next_date(scraper_date)
+    if scraper_date.nil?
+      puts "NIL SCRAPER DATE"
+      return nil
+    end
     scraper_date_array = scraper_date.split('/')
     scraper_date_date = Time.new(scraper_date_array[2], scraper_date_array[0], scraper_date_array[1]).to_date
     self.next_date = scraper_date_date + 15 - days_length
