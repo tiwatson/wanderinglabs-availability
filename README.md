@@ -7,6 +7,15 @@ Useful for when wanting to camp at a fully booked campground. If someone else ca
 
 See it in action (http://reserve.wanderinglabs.com)
 
+-----------
+
+Scraping goes down like so:
+
+- Get request made to campground page to set session (LocationConnection)
+- Post request made to campground page to set filters (LocationFilter)
+- Multiple get requests made for next availability (LocationScraper)
+
+
 Credits
 -----------
 
