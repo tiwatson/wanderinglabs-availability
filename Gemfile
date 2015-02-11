@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 ruby '2.1.4'
 gem 'rails', '4.2'
@@ -63,16 +62,18 @@ end
 
 gem 'bitters'
 
-# Bower based assets files
-gem 'rails-assets-angular'
-gem 'rails-assets-angular-ui-router'
-gem 'rails-assets-lodash'
-gem 'rails-assets-restangular'
-gem 'rails-assets-angucomplete-alt'
+source 'https://rails-assets.org' do
+  # Bower based assets files
+  gem 'rails-assets-angular'
+  gem 'rails-assets-angular-ui-router'
+  gem 'rails-assets-lodash'
+  gem 'rails-assets-restangular'
+  gem 'rails-assets-angucomplete-alt'
 
-# gem 'rails-assets-angucomplete-alt'
-#
-gem 'rails-assets-normalize-css'
-gem 'rails-assets-bourbon'
-gem 'rails-assets-neat'
-gem 'rails-assets-font-awesome'
+  # gem 'rails-assets-angucomplete-alt'
+  #
+  gem 'rails-assets-normalize-css'
+  gem 'rails-assets-bourbon'
+  gem 'rails-assets-neat'
+  gem 'rails-assets-font-awesome'
+end
