@@ -420,15 +420,15 @@ DEPENDENCIES
   pry-rescue
   quiet_assets
   rails (= 4.2)
-  rails-assets-angucomplete-alt
-  rails-assets-angular
-  rails-assets-angular-ui-router
-  rails-assets-bourbon
-  rails-assets-font-awesome
-  rails-assets-lodash
-  rails-assets-neat
-  rails-assets-normalize-css
-  rails-assets-restangular
+  rails-assets-angucomplete-alt!
+  rails-assets-angular!
+  rails-assets-angular-ui-router!
+  rails-assets-bourbon!
+  rails-assets-font-awesome!
+  rails-assets-lodash!
+  rails-assets-neat!
+  rails-assets-normalize-css!
+  rails-assets-restangular!
   rails_layout
   rb-fchange
   rb-fsevent
