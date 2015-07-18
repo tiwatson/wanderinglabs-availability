@@ -34,7 +34,7 @@ class AvailabilityRequest < ActiveRecord::Base
   end
 
   def self.find_availability
-    AvailabilityRequest.where(active: true).find_each do |ar|
+    AvailabilityRequest.where(active: true).where('date_end > ?', Time.now).find_each do |ar|
       ar.find_availability
     end
   end
