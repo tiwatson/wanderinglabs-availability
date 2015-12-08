@@ -1,6 +1,9 @@
 Wanderinglabs Availability
 ================
 
+## NEW UPDATED VERSION - https://github.com/tiwatson/wandering-labs-availability-2 
+## This is an old out dated rails project. See above for the new nodejs based hotness. 
+
 Application that scrapes Reserve America according to queries provided by the end users. Looks for open campsites then notifies them via email.
 
 Useful for when wanting to camp at a fully booked campground. If someone else cancels their reservation, this app will let you know so you may then book it.
